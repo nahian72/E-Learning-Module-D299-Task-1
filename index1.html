@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interactive Writing Coach: Using Feedback to Revise</title>
+<style>
+:root{--navy:#183153;--blue:#2864a5;--gold:#f0bd4a;--pale:#eef4fb;--ink:#17212b;--green:#24744c;--red:#a53636}
+*{box-sizing:border-box}body{margin:0;background:#f5f7fa;color:var(--ink);font:18px/1.55 Arial,sans-serif}
+header{background:var(--navy);color:white;padding:1.5rem max(1rem,calc((100% - 900px)/2))}
+header h1{margin:.2rem 0;font-size:2rem}header p{margin:.25rem 0}
+main{max-width:900px;margin:1.5rem auto;padding:0 1rem}
+nav{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}
+nav button,.btn{border:0;border-radius:8px;padding:.7rem 1rem;background:var(--blue);color:white;font-weight:bold;cursor:pointer}
+nav button[aria-current="step"]{background:var(--gold);color:#17212b}
+section.panel{display:none;background:white;border:1px solid #d8e0e8;border-radius:12px;padding:1.4rem;margin:1rem 0;box-shadow:0 2px 8px #132b4410}
+section.panel.active{display:block}.tag{display:inline-block;background:var(--pale);padding:.2rem .6rem;border-radius:5px;font-size:.85rem}
+.card{background:var(--pale);padding:1rem;border-left:5px solid var(--blue);margin:1rem 0}
+.comment{display:inline-block;background:#fff0c8;border:1px solid #e2b647;padding:.2rem .45rem;border-radius:5px;cursor:pointer;color:#493600}
+.feedback{padding:.7rem;margin:.7rem 0;border-radius:7px;background:#f2f5f8;min-height:2rem}
+label{display:block;margin:.65rem 0}input[type=text],textarea,select{font:inherit;padding:.55rem;width:100%;max-width:100%;border:1px solid #9ba8b6;border-radius:6px}
+.option{background:#fff;border:1px solid #ccd5df;padding:.65rem;border-radius:7px;margin:.45rem 0}
+.option input{margin-right:.5rem}button:focus,a:focus,input:focus,textarea:focus{outline:3px solid #f0bd4a;outline-offset:2px}
+.small{font-size:.9rem;color:#425466}.score{font-size:1.2rem;font-weight:bold}
+footer{max-width:900px;margin:2rem auto;padding:1rem;color:#425466;font-size:.9rem}
+hr{border:0;border-top:1px solid #d8e0e8;margin:1.3rem 0}
+</style>
+</head>
+<body>
+<header><span class="tag">Grade 6 • 1-hour learning module</span><h1>Interactive Writing Coach</h1>
+<p>Learn to interpret teacher feedback and use it to revise an expository paragraph.</p></header>
+<main>
+<div class="card"><strong>Learning objective:</strong> Given a sample expository paragraph and teacher feedback, identify what each comment asks the writer to improve and revise the paragraph to address at least 3 of 4 feedback points.</div>
+<p class="small">Estimated time: 55–60 minutes. Use the navigation buttons to move through the lesson. You can read the feedback, listen using your device’s built-in text-to-speech/read-aloud feature, and type or select answers. No personal information is collected.</p>
+<nav aria-label="Module sections">
+<button data-go="0" aria-current="step">1. Start</button><button data-go="1">2. Learn</button><button data-go="2">3. Practice A</button><button data-go="3">4. Practice B</button><button data-go="4">5. Practice C</button><button data-go="5">6. Revise</button><button data-go="6">7. Final Check</button><button data-go="7">8. Wrap-up</button>
+</nav>
+<section class="panel active" id="p0"><h2>1. Welcome, writer!</h2>
+<p>Teacher comments are clues that help you make your writing clearer. You do not need to fix everything at once. In this lesson, you will learn a simple process: <strong>Read → Explain → Revise → Check.</strong></p>
+<ul><li><strong>Read:</strong> Read the comment and the sentence it refers to.</li><li><strong>Explain:</strong> Put the comment into your own words.</li><li><strong>Revise:</strong> Make one focused change.</li><li><strong>Check:</strong> Confirm that the change addresses the comment.</li></ul>
+<p><strong>Plan:</strong> Learn the strategy (10 min), complete three short practice activities (20 min), revise a paragraph (15 min), and complete the final check (10 min).</p>
+<button class="btn" data-next>Begin lesson →</button></section>
+<section class="panel" id="p1"><h2>2. Learn the strategy</h2>
+<h3>Four common kinds of feedback</h3>
+<div class="card"><strong>1. Add detail:</strong> Give a specific fact, example, or explanation.<br><strong>2. Explain your evidence:</strong> Tell how a fact supports your main idea.<br><strong>3. Organize ideas:</strong> Put sentences in a logical order or add a transition.<br><strong>4. Check clarity:</strong> Make a confusing sentence more precise.</div>
+<h3>Model paragraph</h3><p>“School gardens are useful. Students work outside. Plants need care. Gardens are good for schools.”</p>
+<p>Click a teacher comment to reveal what it means.</p>
+<p><span class="comment" data-comment="Add one concrete example of what students learn while caring for plants.">Comment 1: “Add a specific example.”</span></p>
+<p><span class="comment" data-comment="Explain how caring for plants helps students learn responsibility or science; connect the evidence to your main point.">Comment 2: “Explain why this matters.”</span></p>
+<p><span class="comment" data-comment="Use a transition such as ‘For example’ or ‘As a result’ so the ideas connect logically.">Comment 3: “Connect these ideas.”</span></p>
+<div id="commentExplain" class="feedback" aria-live="polite">A comment explanation will appear here.</div>
+<h3>Remember</h3><p>Feedback is about the writing, not your worth as a learner. Choose one comment, make a targeted change, and reread the sentence.</p>
+<button class="btn" data-next>Try Practice A →</button></section>
+<section class="panel" id="p2"><h2>3. Formative assessment A: Detective work</h2><p>Read the comment: <strong>“Your claim is interesting. Add evidence that shows how gardens help students learn.”</strong></p>
+<p>What is the teacher asking the writer to do?</p>
+<label class="option"><input type="radio" name="fa" value="a"> Correct spelling in every sentence.</label>
+<label class="option"><input type="radio" name="fa" value="b"> Add a fact or example that supports the claim.</label>
+<label class="option"><input type="radio" name="fa" value="c"> Delete the main idea.</label>
+<button class="btn" id="checkA">Check answer</button><div id="fbA" class="feedback" aria-live="polite">Choose an answer, then check.</div>
+<button class="btn" data-next>Continue →</button></section>
+<section class="panel" id="p3"><h2>4. Formative assessment B: Match the feedback</h2><p>Choose the best type of revision for each comment.</p>
+<label for="match1">Comment: “I understand your point, but how does this fact prove it?”</label><select id="match1"><option value="">Choose one</option><option value="detail">Add detail</option><option value="explain">Explain evidence</option><option value="order">Organize ideas</option><option value="clarity">Check clarity</option></select>
+<label for="match2">Comment: “Move this sentence before your example so the paragraph flows.”</label><select id="match2"><option value="">Choose one</option><option value="detail">Add detail</option><option value="explain">Explain evidence</option><option value="order">Organize ideas</option><option value="clarity">Check clarity</option></select>
+<button class="btn" id="checkB">Check answers</button><div id="fbB" class="feedback" aria-live="polite">Your feedback will appear here.</div>
+<button class="btn" data-next>Continue →</button></section>
+<section class="panel" id="p4"><h2>5. Formative assessment C: Choose a useful revision</h2><p>Original sentence: <strong>“Gardens teach students things.”</strong></p><p>Teacher comment: <strong>“Be more specific about what students learn.”</strong></p>
+<label class="option"><input type="radio" name="fc" value="a"> Gardens are nice and I like them.</label>
+<label class="option"><input type="radio" name="fc" value="b"> By measuring plant growth, students practice observation and learn what plants need to survive.</label>
+<label class="option"><input type="radio" name="fc" value="c"> Gardens teach students things in gardens.</label>
+<button class="btn" id="checkC">Check answer</button><div id="fbC" class="feedback" aria-live="polite">Choose an answer, then check.</div>
+<button class="btn" data-next>Revise a paragraph →</button></section>
+<section class="panel" id="p5"><h2>6. Apply it: Revise the paragraph</h2><p><strong>Draft:</strong> “School gardens are useful. Students work outside. Plants need care. Gardens are good for schools.”</p>
+<div class="card"><strong>Teacher feedback</strong><ol><li>Add a specific example of what students learn.</li><li>Explain how the example supports the claim that gardens are useful.</li><li>Connect ideas with a transition.</li><li>Make the final sentence more precise.</li></ol></div>
+<label for="revision">Write your revised paragraph (aim for 4–6 sentences).</label><textarea id="revision" rows="6" placeholder="For example, school gardens help students..."></textarea>
+<button class="btn" id="reviewRevision">Review my revision</button><div id="revisionFeedback" class="feedback" aria-live="polite">After you submit, use the checklist to review your work.</div>
+<h3>Self-checklist</h3><label><input type="checkbox" class="revcheck"> I added a specific example.</label><label><input type="checkbox" class="revcheck"> I explained how the example supports my main point.</label><label><input type="checkbox" class="revcheck"> I used a transition or connected ideas clearly.</label><label><input type="checkbox" class="revcheck"> I made the final sentence more precise.</label>
+<button class="btn" data-next>Take the final check →</button></section>
+<section class="panel" id="p6"><h2>7. Summative assessment: Feedback in action</h2><p>Read this draft and answer all four questions. Passing target: at least <strong>3 out of 4</strong> correct. You may retry after reviewing the feedback.</p>
+<p class="card"><strong>Draft:</strong> “Students should have more reading time. Reading is helpful. It can help students learn new words. Schools should do it.”</p>
+<ol>
+<li><p>Comment: “Give a concrete example of how reading builds vocabulary.”</p><label class="option"><input type="radio" name="s1" value="a"> Add a specific example, such as learning unfamiliar words from context.</label><label class="option"><input type="radio" name="s1" value="b"> Change every sentence to a question.</label></li>
+<li><p>Comment: “Explain how learning new words supports your claim.”</p><label class="option"><input type="radio" name="s2" value="a"> Delete the claim.</label><label class="option"><input type="radio" name="s2" value="b"> Explain that vocabulary helps students understand more challenging texts.</label></li>
+<li><p>Comment: “Connect your evidence to the main idea.”</p><label class="option"><input type="radio" name="s3" value="a"> Add a transition or linking sentence that explains the connection.</label><label class="option"><input type="radio" name="s3" value="b"> Add an unrelated sentence about lunch.</label></li>
+<li><p>Comment: “Make ‘Schools should do it’ more precise.”</p><label class="option"><input type="radio" name="s4" value="a"> Keep it because all readers will know what “it” means.</label><label class="option"><input type="radio" name="s4" value="b"> Revise it to state what schools should do, such as schedule daily independent reading time.</label></li>
+</ol>
+<button class="btn" id="gradeFinal">Submit final check</button><div id="finalFeedback" class="feedback" aria-live="polite">Your score and feedback will appear here.</div>
+</section>
+<section class="panel" id="p7"><h2>8. Wrap-up: Your revision toolkit</h2><p>When you receive feedback, remember:</p><ol><li>Read the comment and the sentence it refers to.</li><li>Explain the comment in your own words.</li><li>Make a focused revision.</li><li>Reread and check that the revision responds to the comment.</li></ol>
+<p><strong>Key takeaway:</strong> Strong revision is not simply correcting errors. It means using feedback to make ideas clearer, better supported, and easier for a reader to follow.</p>
+<p>Before you finish, name one revision strategy you will try on your next writing assignment.</p><label for="takeaway">My next step</label><textarea id="takeaway" rows="3" placeholder="Next time I receive feedback, I will..."></textarea>
+<p class="small">Accessibility: all activities can be completed by keyboard; controls have labels; color is not the only way information is conveyed. Use your device’s built-in screen reader or read-aloud feature if helpful.</p>
+<button class="btn" data-go="0">Return to start</button></section>
+</main>
+<footer>Interactive Writing Coach • Designed for Grade 6 learners at Golden Maple Middle School, Learner Group A. This standalone file runs in a modern browser and does not send learner responses to a server.</footer>
+<script>
+const panels=[...document.querySelectorAll('.panel')], nav=[...document.querySelectorAll('nav button')];
+function go(i){panels.forEach((p,j)=>p.classList.toggle('active',j===i));nav.forEach((b,j)=>{if(j===i)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current')});window.scrollTo({top:0,behavior:'smooth'});}
+nav.forEach(b=>b.addEventListener('click',()=>go(Number(b.dataset.go))));
+document.querySelectorAll('[data-next]').forEach(b=>b.addEventListener('click',()=>{let i=panels.findIndex(p=>p.classList.contains('active'));go(Math.min(i+1,panels.length-1));}));
+document.querySelectorAll('[data-go]').forEach(b=>{if(!b.closest('nav'))b.addEventListener('click',()=>go(Number(b.dataset.go)));});
+document.querySelectorAll('.comment').forEach(b=>b.addEventListener('click',()=>document.getElementById('commentExplain').textContent=b.dataset.comment));
+document.getElementById('checkA').onclick=()=>{let v=document.querySelector('input[name="fa"]:checked')?.value;document.getElementById('fbA').textContent=v==='b'?'Correct. Evidence means a fact or example that supports the writer’s claim.':v?'Not quite. Look for the choice that adds supporting evidence.':'Choose an answer first.'};
+document.getElementById('checkB').onclick=()=>{let a=document.getElementById('match1').value,b=document.getElementById('match2').value;let score=(a==='explain')+(b==='order');document.getElementById('fbB').textContent=`You matched ${score} of 2 correctly. Comment 1 asks you to explain evidence; Comment 2 asks you to organize ideas. ${score===2?'Excellent work.':'Review the feedback types and try again.'}`};
+document.getElementById('checkC').onclick=()=>{let v=document.querySelector('input[name="fc"]:checked')?.value;document.getElementById('fbC').textContent=v==='b'?'Correct. This revision gives a concrete, relevant example.':v?'Try again. Choose the sentence that names a specific learning activity and what students learn.':'Choose an answer first.'};
+document.getElementById('reviewRevision').onclick=()=>{let t=document.getElementById('revision').value.trim();let n=document.querySelectorAll('.revcheck:checked').length;document.getElementById('revisionFeedback').textContent=!t?'Write a revised paragraph first.':`You wrote ${t.split(/\s+/).filter(Boolean).length} words and checked ${n} of 4 revision targets. Review the teacher feedback and make sure your paragraph adds an example, explains it, connects ideas, and states a precise conclusion. This is a self-review guide, not an automatic grade.`};
+document.getElementById('gradeFinal').onclick=()=>{let answers=['a','b','a','b'];let score=answers.reduce((s,a,i)=>s+(document.querySelector(`input[name="s${i+1}"]:checked`)?.value===a?1:0),0);let box=document.getElementById('finalFeedback');box.innerHTML=`<span class="score">Score: ${score}/4 (${score*25}%)</span><br>${score>=3?'Target met. You can identify and apply the four feedback strategies.':'Target not yet met. Review the lesson and retry the assessment.'}<br>Correct responses: 1A (add evidence), 2B (explain relevance), 3A (connect ideas), 4B (make the action precise).`;};
+</script>
+</body></html>
