@@ -90,7 +90,7 @@ hr{border:0;border-top:1px solid #d8e0e8;margin:1.3rem 0}
 <p class="small">Accessibility: all activities can be completed by keyboard; controls have labels; color is not the only way information is conveyed. Use your device’s built-in screen reader or read-aloud feature if helpful.</p>
 <button class="btn" data-go="0">Return to start</button></section>
 </main>
-<footer>Interactive Writing Coach • Designed for Grade 6 learners at Golden Maple Middle School, Learner Group A. This standalone file runs in a modern browser and does not send learner responses to a server.</footer>
+<footer>Interactive Writing Coach.</footer>
 <script>
 const panels=[...document.querySelectorAll('.panel')], nav=[...document.querySelectorAll('nav button')];
 function go(i){panels.forEach((p,j)=>p.classList.toggle('active',j===i));nav.forEach((b,j)=>{if(j===i)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current')});window.scrollTo({top:0,behavior:'smooth'});}
